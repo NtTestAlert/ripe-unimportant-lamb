@@ -26,3 +26,9 @@ services:
       MYSQL_USER: testuser
       MYSQL_PASSWORD: testpassword
       MYSQL_DATABASE: testdatabase
+  rcli:
+    image: redis
+    links:
+      - redis
+    command: >
+      sh -c 'redis-cli -h redis '
