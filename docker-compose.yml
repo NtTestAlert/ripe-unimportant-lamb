@@ -9,6 +9,11 @@ services:
     links:
       - redis
       - maria
+    depends_on:
+      redis:
+        condition: service_started
+      maria:
+        condition: service_healthy
     environment:
       REDIS_URL: redis://redis
       TYPEORM_HOST: maria
