@@ -1,0 +1,25 @@
+version: "3"
+services:
+  app:
+    container_name: "app"
+    restart: always
+    build: .
+    #    ports:
+    #      - "80:80"
+    links:
+      - redis
+      - maria
+    environment:
+      REDIS_URL=redis://redis
+      TYPEORM_HOST=maria
+  mongo:
+    container_name: redis
+    image: redis
+  maria:
+    container_name: maria
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootpassword"
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+      MYSQL_DATABASE: testdatabase
