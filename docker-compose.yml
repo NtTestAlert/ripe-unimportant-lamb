@@ -12,7 +12,7 @@ services:
     environment:
       REDIS_URL=redis://redis
       TYPEORM_HOST=maria
-  mongo:
+  redis:
     container_name: redis
     image: redis
   maria:
