@@ -10,8 +10,8 @@ services:
       - redis
       - maria
     environment:
-      REDIS_URL=redis://redis
-      TYPEORM_HOST=maria
+      REDIS_URL: redis://redis
+      TYPEORM_HOST: maria
   redis:
     container_name: redis
     image: redis
